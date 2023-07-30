@@ -1,6 +1,8 @@
 package com.zipcodewilmington.arrayutility;
 
-import java.util.Arrays;
+import java.lang.reflect.Array;
+
+
 
 /**
  * Created by leon on 3/6/18.
@@ -20,7 +22,8 @@ public class ArrayUtility <T>{
 
     public T[] mergeArray(T[] arrayToMerge){
 
-        T [] newArray = Arrays.copyOf(array, array.length+arrayToMerge.length);
+        //T [] newArray = Arrays.copyOf(array, array.length+arrayToMerge.length);
+        T [] newArray = (T[]) Array.newInstance(arrayToMerge[0].getClass(),array.length+arrayToMerge.length);
 
         //orginal array into new array
 
@@ -54,20 +57,52 @@ public class ArrayUtility <T>{
     }
 
     public Object[] removeValue(T valueToRemove) {
-        return new Object[0];
+
+        int counter =0;
+
+        Integer remove = (Integer) getNumberOfOccurrences(valueToRemove);
+        //T [] newArray = Arrays.copyOf(array, array.length-remove);
+        T [] newArray = (T[]) Array.newInstance(valueToRemove.getClass(),array.length-remove);
+
+        for (int i=0; i<array.length;i++){
+            if (!array[i].equals(valueToRemove)){
+                newArray[counter]=array[i];
+            }
+        }
+
+        return newArray;
     }
 
 
-//    public T countDuplicatesInMerge(Integer[] arrayToMerge, T valueToEvaluate) {
-//
-//        T [] newArray = mergeArray(arrayToMerge);
-//
-//        return valueToEvaluate;
-//    }
+    public Integer countDuplicatesInMerge(Integer[] arrayToMerge, T valueToEvaluate) {
 
+        T [] newArray = mergeArray((T[]) arrayToMerge);
+        this.array = newArray;
 
+        int duplicate = (int) getNumberOfOccurrences(valueToEvaluate);
+        return duplicate;
+    }
 
+    public T getMostCommonFromMerge(T[] arrayToMerge){
+        T [] newArray = mergeArray(arrayToMerge);
 
+        int mostCommon =0;
+        T commonObj = null;
+        int counter =0;
+
+        for (int i=0;i< newArray.length;i++){
+            for (int j=0;i< newArray.length;j++){
+                if(newArray[i]==newArray[j]){
+                    counter++;
+                }
+            }
+            if (counter>mostCommon){
+                mostCommon=counter;
+                commonObj=newArray[i];
+            }
+        }
+        return commonObj;
+    }
 
 
 }
