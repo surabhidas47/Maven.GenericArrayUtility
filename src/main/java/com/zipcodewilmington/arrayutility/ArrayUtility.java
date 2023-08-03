@@ -50,7 +50,7 @@ public class ArrayUtility <T> {
 
     }
 
-    public T getMostCommonFromMerge(Integer[] arrayToMerge) {
+    public T getMostCommonFromMerge(T[] arrayToMerge) {
         //need to return most common object
 
         //first use mergeArrays method
@@ -79,5 +79,13 @@ public class ArrayUtility <T> {
         }
 
         return mostCommonObj;
+    }
+
+    public T[] removeValue(T valueToRemove) {
+        return null;
+    }
+
+    public Integer countDuplicatesInMerge(T[] arrayToMerge, T valueToEvaluate) {
+        return null;
     }
 }
