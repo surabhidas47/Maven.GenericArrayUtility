@@ -3,6 +3,7 @@ package com.zipcodewilmington.arrayutility;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by leon on 3/6/18.
@@ -86,19 +87,24 @@ public class ArrayUtility <T> {
 
     public T[] removeValue(T valueToRemove) {
 
-        ArrayList<T> newList = new ArrayList<>();
+        List<T> newList = new ArrayList<>();
 
-        for (int i=0;i< givenArray.length;i++){
-            if(givenArray[i]==valueToRemove){
-
+//        for (int i=0;i<givenArray.length;i++){
+//            if(givenArray[i]!=valueToRemove){
+//                newList.add(givenArray[i]);
+//            }
+        for(T check: givenArray){
+            if(!valueToRemove.equals(check)){
+                newList.add(check);
             }
+
 
         }
 
+        T[] result = newList.toArray((T[]) new Object[newList.size()]);
 
 
-
-        return null;
+        return result;
     }
 
     public Integer countDuplicatesInMerge(T[] arrayToMerge, T valueToEvaluate) {
