@@ -1,6 +1,7 @@
 package com.zipcodewilmington.arrayutility;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -42,8 +43,10 @@ public class ArrayUtility <T> {
         int count =0;
 
         for (int i=0;i< givenArray.length;i++){
-            if(valueToEvaluate.equals(givenArray[i]));
-            count++;
+            if(givenArray[i]==valueToEvaluate){
+                count++;
+            }
+
         }
 
         return count;
@@ -82,6 +85,19 @@ public class ArrayUtility <T> {
     }
 
     public T[] removeValue(T valueToRemove) {
+
+        ArrayList<T> newList = new ArrayList<>();
+
+        for (int i=0;i< givenArray.length;i++){
+            if(givenArray[i]==valueToRemove){
+
+            }
+
+        }
+
+
+
+
         return null;
     }
 
