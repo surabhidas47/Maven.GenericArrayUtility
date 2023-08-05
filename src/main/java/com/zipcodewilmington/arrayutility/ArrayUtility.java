@@ -87,24 +87,18 @@ public class ArrayUtility <T> {
 
     public T[] removeValue(T valueToRemove) {
 
-        List<T> newList = new ArrayList<>();
+      int count = 0;
+      for (int i=0;i<givenArray.length;i++){
+          if (givenArray[i]==valueToRemove){
+              count++;
+          }
+      }
 
-//        for (int i=0;i<givenArray.length;i++){
-//            if(givenArray[i]!=valueToRemove){
-//                newList.add(givenArray[i]);
-//            }
-        for(T check: givenArray){
-            if(!valueToRemove.equals(check)){
-                newList.add(check);
-            }
+        T [] newArray = Arrays.copyOf(givenArray,givenArray.length-count);
 
 
-        }
 
-        T[] result = newList.toArray((T[]) new Object[newList.size()]);
-
-
-        return result;
+        return null;
     }
 
     public Integer countDuplicatesInMerge(T[] arrayToMerge, T valueToEvaluate) {
