@@ -58,7 +58,7 @@ public class ArrayUtility <T> {
         //need to return most common object
 
         //first use mergeArrays method
-        mergeArrays((T[]) arrayToMerge);
+        mergeArrays(arrayToMerge);
 
         int mostCommonNum =0;
         T mostCommonObj = null;
@@ -105,6 +105,9 @@ public class ArrayUtility <T> {
     }
 
     public Integer countDuplicatesInMerge(T[] arrayToMerge, T valueToEvaluate) {
-        return null;
+        mergeArrays(arrayToMerge);
+
+        int n= getNumberOfOccurrences(valueToEvaluate);
+        return n;
     }
 }
